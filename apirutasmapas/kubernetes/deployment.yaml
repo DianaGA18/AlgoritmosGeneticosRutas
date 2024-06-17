@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-mapa-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-mapa
+  template:
+    metadata:
+      labels:
+        app: api-mapa
+    spec:
+      containers:
+      - name: api-mapa
+        image: docker.io/api-mapa/apirutasmapas
+        ports:
+        - containerPort: 8000
